@@ -1,0 +1,149 @@
+
+:root[data-theme="dark"]{
+    --background: #191920;
+    --text-color: #f0f0f0;
+  }
+  
+  :root[data-theme="light"]{
+    --background: #f0f0f0;
+    --text-color: #191920;
+  }
+  
+
+body{
+    margin: 0;
+    padding: 20px;
+    color: var(--text-color);
+    background-color: var(--background);
+    font-family: sans-serif;
+}
+h1{
+    font-size: 2rem;
+    font-weight: normal;
+    margin: 0;
+}
+h2{
+    font-size: 1.2rem;
+    text-decoration: underline;
+}
+#print-page{
+    text-align: center;
+}
+header{
+    margin-bottom: 80px;
+}
+nav ul{
+    display: flex;
+    justify-content: space-around;
+}
+nav ul li{
+    color: var(--text-color);
+    text-decoration: underline;
+    padding: 3px 9px;
+    border-radius: 5px;
+    font-weight: bold;
+    list-style-type: none;
+}
+#table{
+    margin: auto;
+    border: 1px solid var(--text-color);
+    border-style: solid;
+    border-collapse: collapse;
+    table-layout: auto;
+    width: auto;
+    text-align: left;
+}
+th, td{
+    border: 1px solid var(--text-color);
+    border-style: solid;
+    border-collapse: collapse;
+    padding: 7px;
+}
+th{
+    padding: 10px;
+    font-size: 1.2rem;
+}
+td{
+    font-size: 1.1rem;
+}
+.background-logo-inner {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(#1E90FF, #00CED1);
+    -webkit-mask-image: url("logo.png");
+    mask-image: url("logo.png");
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    opacity: .6;
+  }
+  .background-logo-main{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -999;
+  }
+
+
+  footer{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #121212;
+    color: #f0f0f0;
+    margin-top: 50px;
+  }
+  footer div{
+    margin: 15px 0;
+    font-size: .8em;
+  }
+  
+  .footer-logo{
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(#1E90FF, #00CED1);
+    -webkit-mask-image: url("logo.png");
+    mask-image: url("logo.png");
+    mask-repeat: no-repeat;
+    mask-size: contain;
+  }
+@media screen and (min-width: 769px){
+    footer{
+        background-color: transparent;
+        color: var(--text-color);
+        font-weight: bold;
+    }
+}
+@media print {
+    header{
+        display: none;
+    }
+    body{
+        background-color: white;
+    }
+    #print-page{
+        color: black !important;
+    }
+    #table{
+        width: 100%;
+        color: black !important;
+        border: 1px solid black !important;
+    }
+    th, td{
+        color: black !important;
+        border: 1px solid black !important;
+    }
+    @page {
+        size: A4 portrait; /* Default is portrait */
+        margin: 1.5cm; /* 1-inch margins */
+    }
+    footer{display: none;}
+    
+}

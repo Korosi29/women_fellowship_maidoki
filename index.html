@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' type='text/css' href='main.css'>
+    <script src="main.js" defer></script>
+    <script src="women_data.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li onclick="getComingFridayInfo(2025);">See Coming Friday</li>
+                <li onclick="changeTheme();">Change Theme</li>
+                <li onclick="goToAboutPage();">About This Page</li>
+            </ul>
+        </nav>
+    </header>
+    <div class="background-logo-main">
+        <div class="background-logo-inner">
+
+        </div>
+    </div>
+    <main>
+        <section id="print-page">
+            <h1>ECWA CHURCH U/MAIDOKI LC</h1>
+            <h2>WOMEN FELLOWSHIP PROGRAM OF THE YEAR <span id="year"></span></h2>
+            <table id="table">
+                <tr>
+                    <th>DATE</th>
+                    <th>PROGRAM LEADER</th>
+                    <th>MAI KAYASWA</th>
+                    <th>KAN MAGANA</th>
+                </tr>
+
+            </table>
+        </section>
+    </main>
+    <footer>
+        <div>Developed By FLEXORA</div>
+        <div class="footer-logo"></div>
+        <div style="text-decoration: underline;cursor: pointer;" onclick="goToAboutPage();">About FLEXORA</div>
+      </footer>
+</body>
+</html>
