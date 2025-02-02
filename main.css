@@ -11,7 +11,6 @@
   
 
 body{
-    margin: 0;
     padding: 20px;
     color: var(--text-color);
     background-color: var(--background);
@@ -28,9 +27,11 @@ h2{
 }
 #print-page{
     text-align: center;
+    width: 100%;
+    overflow: auto;
 }
 header{
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 nav ul{
     display: flex;
@@ -45,12 +46,12 @@ nav ul li{
     list-style-type: none;
 }
 #table{
-    margin: auto;
     border: 1px solid var(--text-color);
     border-style: solid;
     border-collapse: collapse;
-    table-layout: auto;
-    width: auto;
+    width: 100%;
+    margin:0 auto;
+    max-width:100% ;
     text-align: left;
 }
 th, td{
@@ -67,8 +68,8 @@ td{
     font-size: 1.1rem;
 }
 .background-logo-inner {
-    width: 250px;
-    height: 250px;
+    width: 230px;
+    height: 230px;
     background: linear-gradient(#1E90FF, #00CED1);
     -webkit-mask-image: url("logo.png");
     mask-image: url("logo.png");
@@ -90,7 +91,7 @@ td{
 
 
   footer{
-    width: 100%;
+    width: 100% !important;
     height: 250px;
     display: flex;
     justify-content: center;
