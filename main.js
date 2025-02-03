@@ -29,7 +29,7 @@ function populateTable(year){
 
             let displayMonth = false;
 
-    for(let i = 0; i < date.length; i++) {
+    for(let i = 0; i < date.length -1; i++) {
         const tableRow = document.createElement("tr");
         if(date[i].getMonth() === 1 && !displayMonth){
             for(let j = 0; j < 1; j++){
@@ -140,8 +140,7 @@ function populateTable(year){
           }
         }
                 
-         tableRow.innerHTML += `<td>${date[i].getDate()+'/'+Number(date[i].getMonth()+1)+'/'+date[i].getFullYear()}</td> <td>Name</td> <td>Name</td><td>Topic</td>`;
-
+         tableRow.innerHTML += `<td>${date[i].getDate()+'/'+Number(date[i].getMonth()+1)+'/'+date[i].getFullYear()}</td> <td>${programLead[i]}</td> <td>${teachers[i]}</td><td>${topics[i]}</td>`;
         table.appendChild(tableRow);
     }
 }
