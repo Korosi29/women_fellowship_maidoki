@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
     <meta charset='utf-8'>
-    <title>Page Title</title>
+    <title>https://korosi29.github.io/women_fellowship_maidoki/</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' type='text/css' href='main.css'>
     <script src="program_lead_data.js" defer></script>
@@ -14,7 +14,7 @@
     <header>
         <nav>
             <ul>
-                <li onclick="getComingFridayInfo(2025);">See Coming Friday</li>
+                <li onclick="renderComingFridayInfo(2025);">See Coming Friday</li>
                 <li onclick="changeTheme();">Change Theme</li>
                 <li onclick="goToAboutPage();">About This Page</li>
             </ul>
@@ -39,7 +39,24 @@
 
             </table>
         </section>
+        <section id="next-fri-section">
+            <div>
+                <h2>Next Friday</h2>
+                <table id="next-fri-table">
+                    <tr>
+                        <th>DATE</th>
+                        <th>PROGRAM LEADER</th>
+                        <th>MAI KAYASWA</th>
+                        <th>KAN MAGANA</th>
+                    </tr>
+                    <tr id="next-fri-td-row">
+
+                    </tr>
+                </table>
+            </div>
+        </section>
     </main>
+
     <footer>
         <div>Developed By FLEXORA</div>
         <div class="footer-logo"></div>

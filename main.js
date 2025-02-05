@@ -19,143 +19,91 @@ function getAllFridays(year){
 function getCurrentDate(){
   return new Date();
 }
+
+
 function populateTable(year){
 
-    document.getElementById("year").textContent = year;
+  document.getElementById("year").textContent = year;
 
-    const table = document.getElementById("table");
+  const table = document.getElementById('table');
 
-    const date = getAllFridays(year);
+  const date = getAllFridays(year)
+  
+  //check if the month has already existed so that we dont render it twice at the month name rows
+  let existedMonth = {}
 
-            let displayMonth = false;
+  let monthsArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    for(let i = 0; i < date.length -1; i++) {
-        const tableRow = document.createElement("tr");
-        if(date[i].getMonth() === 1 && !displayMonth){
-            for(let j = 0; j < 1; j++){
-            let monthRow = document.createElement("tr");
-            let monthStyle = `<td colspan="4" style="text-align:center; font-weight: bold;font-size:1.19rem;">Febuary</td>`;
-            monthRow.innerHTML = monthStyle;
-            table.appendChild(monthRow);
-            displayMonth = true;
-            }
-        }
-        if(date[i].getMonth() === 2 && displayMonth){
-          for(let j = 0; j < 1; j++){
-          let monthRow = document.createElement("tr");
-          let monthStyle = `<td colspan="4" style="text-align:center; font-weight: bold;font-size:1.19rem;">March</td>`;
-          monthRow.innerHTML = monthStyle;
-          table.appendChild(monthRow);
-          displayMonth = false;
-          }
-      }
+  //go through all the fridays days with this loop
+  for (let i = 0; i < date.length-1; i++) {
+    let tableRow = document.createElement('tr');
+    //Only give me only the month that does not exist so i have 1 - 11;
+    if(!existedMonth[date[i].getMonth()]){
+      let monthTd = document.createElement('td');
 
-        if(date[i].getMonth() === 3 && !displayMonth){
-          for(let j = 0; j < 1; j++){
-          let monthRow = document.createElement("tr");
-          let monthStyle = `<td colspan="4" style="text-align:center; font-weight: bold;font-size:1.19rem;">April</td>`;
-          monthRow.innerHTML = monthStyle;
-          table.appendChild(monthRow);
-          displayMonth = true;
-          }
-      }
+      let monthRow = document.createElement('tr');
+      //normaly, [date[i].getMonth() gives me 1-11]
+      monthTd.innerHTML = `${monthsArr[date[i].getMonth()]}`
+      //style my td
+      monthTd.colSpan = 4;
+      monthTd.style.textAlign = "center";
+      monthTd.style.fontSize = "1.2em";
+      monthTd.style.fontWeight = "bold";
+      
+      monthRow.appendChild(monthTd);
+      
+      existedMonth[date[i].getMonth()] = true;
 
-        if(date[i].getMonth() === 4 && displayMonth){
-          for(let j = 0; j < 1; j++){
-          let monthRow = document.createElement("tr");
-          let monthStyle = `<td colspan="4" style="text-align:center; font-weight: bold;font-size:1.19rem;">May</td>`;
-          monthRow.innerHTML = monthStyle;
-          table.appendChild(monthRow);
-          displayMonth = false;
-          }
-      }
-
-        if(date[i].getMonth() === 5 && !displayMonth){
-          for(let j = 0; j < 1; j++){
-          let monthRow = document.createElement("tr");
-          let monthStyle = `<td colspan="4" style="text-align:center; font-weight: bold;font-size:1.19rem;">June</td>`;
-          monthRow.innerHTML = monthStyle;
-          table.appendChild(monthRow);
-          displayMonth = true;
-          }
-      }
-
-        if(date[i].getMonth() === 6 && displayMonth){
-          for(let j = 0; j < 1; j++){
-          let monthRow = document.createElement("tr");
-          let monthStyle = `<td colspan="4" style="text-align:center; font-weight: bold;font-size:1.19rem;">July</td>`;
-          monthRow.innerHTML = monthStyle;
-          table.appendChild(monthRow);
-          displayMonth = false;
-          }
-        }
-
-        if(date[i].getMonth() === 7 && !displayMonth){
-          for(let j = 0; j < 1; j++){
-          let monthRow = document.createElement("tr");
-          let monthStyle = `<td colspan="4" style="text-align:center; font-weight: bold;font-size:1.19rem;">August</td>`;
-          monthRow.innerHTML = monthStyle;
-          table.appendChild(monthRow);
-          displayMonth = true;
-          }
-        }
-
-        if(date[i].getMonth() === 8 && displayMonth){
-          for(let j = 0; j < 1; j++){
-          let monthRow = document.createElement("tr");
-          let monthStyle = `<td colspan="4" style="text-align:center; font-weight: bold;font-size:1.19rem;">September</td>`;
-          monthRow.innerHTML = monthStyle;
-          table.appendChild(monthRow);
-          displayMonth = false;
-          }
-        }
-
-        if(date[i].getMonth() === 9 && !displayMonth){
-          for(let j = 0; j < 1; j++){
-          let monthRow = document.createElement("tr");
-          let monthStyle = `<td colspan="4" style="text-align:center; font-weight: bold;font-size:1.19rem;">October</td>`;
-          monthRow.innerHTML = monthStyle;
-          table.appendChild(monthRow);
-          displayMonth = true;
-          }
-        }
-
-        if(date[i].getMonth() === 10 && displayMonth){
-          for(let j = 0; j < 1; j++){
-          let monthRow = document.createElement("tr");
-          let monthStyle = `<td colspan="4" style="text-align:center; font-weight: bold;font-size:1.19rem;">November</td>`;
-          monthRow.innerHTML = monthStyle;
-          table.appendChild(monthRow);
-          displayMonth = false;
-          }
-        }
-
-        if(date[i].getMonth() === 11 && !displayMonth){
-          for(let j = 0; j < 1; j++){
-          let monthRow = document.createElement("tr");
-          let monthStyle = `<td colspan="4" style="text-align:center; font-weight: bold;font-size:1.19rem;">December</td>`;
-          monthRow.innerHTML = monthStyle;
-          table.appendChild(monthRow);
-          displayMonth = true;
-          }
-        }
-                
-         tableRow.innerHTML += `<td>${date[i].getDate()+'/'+Number(date[i].getMonth()+1)+'/'+date[i].getFullYear()}</td> <td>${programLead[i]}</td> <td>${teachers[i]}</td><td>${topics[i]}</td>`;
-        table.appendChild(tableRow);
+      table.appendChild(monthRow); 
     }
+    let dateTd = document.createElement('td');
+
+    dateTd.textContent = date[i].getDate()+'/'+Number(date[i].getMonth()+1)+'/'+date[i].getFullYear();
+
+    let progLdTd = document.createElement('td');
+
+    progLdTd.textContent = programLead[i];
+
+    let teacherTd = document.createElement('td');
+
+    teacherTd.textContent = teachers[i];
+
+    let topicTd = document.createElement('td');
+
+    topicTd.textContent = topics[i]; 
+
+    tableRow.appendChild(dateTd);
+    tableRow.appendChild(progLdTd);
+    tableRow.appendChild(teacherTd);
+    tableRow.appendChild(topicTd);
+
+    table.appendChild(tableRow); 
+  }
+
+  
 }
+
 populateTable(2025);
 
-function getComingFridayInfo(year){
+
+
+function renderComingFridayInfo(year){
   let date = getAllFridays(year);
-  
+  let table = document.getElementById('next-fri-table');
+  document.getElementById('next-fri-section').style.display = 'flex';
   for(let i = 0; i < date.length; i++){
   // check approaching Friday
     if(date[i] >= getCurrentDate()){
-      alert(date[i]);
+      let tableRow = document.getElementById('next-fri-td-row');
+
+      tableRow.innerHTML = `<td>${date[i].getDate()+"/"+date[i].getMonth()+"/"+date[i].getFullYear()}</td> <td>${programLead[i]}</td> <td>${teachers[i]}</td> <td>${topics[i]}</td>`;
+      table.appendChild(tableRow)
       break;
     }
   }
+  setTimeout(function(){
+    document.getElementById('next-fri-section').style.display = 'none';
+  }, 3000);
 }
 
 

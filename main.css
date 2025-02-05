@@ -58,11 +58,12 @@ th, td{
     border: 1px solid var(--text-color);
     border-style: solid;
     border-collapse: collapse;
-    padding: 7px;
+    padding: 4px;
 }
 th{
-    padding: 10px;
+    padding: 5px;
     font-size: 1.2rem;
+    text-align: center;
 }
 td{
     font-size: 1.1rem;
@@ -115,6 +116,32 @@ td{
     mask-repeat: no-repeat;
     mask-size: contain;
   }
+
+#next-fri-section{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+
+}
+#next-fri-section div{
+    width:90%;
+}
+#next-fri-section div table{
+    border-collapse: collapse;
+}
+#next-fri-section div table th{
+    padding: 3px;
+}
+
+
+
+
 @media screen and (min-width: 769px){
     footer{
         background-color: transparent;
