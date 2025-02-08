@@ -127,7 +127,7 @@ td{
     position: fixed;
     left: 0;
     top: 0;
-
+    overflow: auto;
 }
 #next-fri-section div{
     width:90%;
